@@ -1,20 +1,33 @@
-# Parking Control API
+# 🚗 Parking Control API
 
-Controle de vagas de estacionamento com check-in/checkout de veículos, consulta por placa e gestão de disponibilidade por tipo de vaga (Standard, PCD, Idoso, VIP, Moto).
+Sistema de controle de estacionamento com check-in e check-out de veículos.
 
-## Tecnologias
-Java 17 · Spring Boot 3.2 · Spring Data JPA · MySQL · Maven · Swagger/OpenAPI
+## 📋 Sobre o Projeto
 
-## Funcionalidades
-- Cadastro e gestão de vagas por tipo e status
-- Check-in de veículo com registro de placa, proprietário e horário de entrada
-- Checkout com liberação automática da vaga
-- Consulta de vagas disponíveis por tipo
-- Busca de veículo por placa
+API para gerenciar vagas de um estacionamento. Controla a entrada e saída de veículos, rastreia por placa, calcula o tempo de permanência e indica vagas disponíveis por tipo (CARRO, MOTO, CAMINHÃO).
 
-## Como Executar
-```bash
-mvn spring-boot:run
-# Acesse: http://localhost:8088/swagger-ui.html
-```
-**Patryck Martins Langsdorff** — Java Back End Developer Junior | [LinkedIn](https://www.linkedin.com/in/patryck-martins-langsdorff)
+## ✨ Funcionalidades
+
+- ✅ Cadastrar vagas por tipo (CAR, MOTORCYCLE, TRUCK)
+- ✅ Registrar entrada de veículo (check-in com placa e modelo)
+- ✅ Registrar saída (check-out com hora de saída)
+- ✅ Consultar vagas disponíveis
+- ✅ Buscar vaga por placa do veículo
+- ✅ Listar histórico por placa
+- ✅ Status das vagas: AVAILABLE, OCCUPIED
+
+## 🔗 Endpoints
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET | `/api/parking` | Listar todas as vagas |
+| GET | `/api/parking/available` | Vagas disponíveis |
+| GET | `/api/parking/{id}` | Buscar vaga por ID |
+| POST | `/api/parking` | Criar vaga |
+| POST | `/api/parking/{id}/checkin` | Check-in de veículo |
+| POST | `/api/parking/{id}/checkout` | Check-out de veículo |
+| GET | `/api/parking/plate/{plate}` | Buscar por placa |
+
+## 🛠️ Tecnologias
+
+- Java 17 · Spring Boot 3.2 · MySQL · Maven · Lombok
